@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.master')
 
-<head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="csrf-token" content="{{ csrf_token() }}">
-
-   <title>{{ config('app.name', 'Laravel') }}</title>
-
-   <!-- Fonts -->
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-   <!-- Scripts -->
-   @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body class="font-sans antialiased">
+@section('content')
    <div class="flex-col w-full md:flex md:flex-row md:min-h-screen">
       <div @click.away="open = false"
-         class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-white md:w-64 dark:text-gray-200 dark:bg-gray-800"
+         class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-transparent md:w-64 dark:text-gray-200 dark:bg-gray-800"
          x-data="{ open: false }">
-         <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
+         <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-6">
             <a href="#"
                class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">Flowtrail
                UI</a>
@@ -35,16 +20,20 @@
                </svg>
             </button>
          </div>
-         <nav :class="{ 'block': open, 'hidden': !open }"
-            class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-               href="#">Blog</a>
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-               href="#">Portfolio</a>
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-               href="#">About</a>
-            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-               href="#">Contact</a>
+         <nav :class="{ 'block': open, 'hidden': !open }" class="flex-grow px-8 py-4 md:block md:pb-0 md:overflow-y-auto">
+            <x-dapur.nav-link href="{{ route('dapur.categories.index') }}" :active="request()->routeIs('dapur.categories.*')">
+               {{ __('Categories') }}
+            </x-dapur.nav-link>
+            <x-dapur.nav-link href="{{ route('dapur.tables.index') }}" :active="request()->routeIs('dapur.tables.*')">
+               {{ __('Tables') }}
+            </x-dapur.nav-link>
+            <x-dapur.nav-link href="{{ route('dapur.menus.index') }}" :active="request()->routeIs('dapur.menus.*')">
+               {{ __('Menus') }}
+            </x-dapur.nav-link>
+            <x-dapur.nav-link href="{{ route('dapur.reservations.index') }}" :active="request()->routeIs('dapur.reservations.*')">
+               {{ __('Reservation') }}
+            </x-dapur.nav-link>
+
             <div @click.away="open = false" class="relative" x-data="{ open: false }">
                <button @click="open = !open"
                   class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark:bg-transparent dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
@@ -56,7 +45,7 @@
                         clip-rule="evenodd"></path>
                   </svg>
                </button>
-               <div x-show="open" x-transition:enter="transition ease-out duration-100"
+               <div x-cloak x-show="open" x-transition:enter="transition ease-out duration-100"
                   x-transition:enter-start="transform opacity-0 scale-95"
                   x-transition:enter-end="transform opacity-100 scale-100"
                   x-transition:leave="transition ease-in duration-75"
@@ -71,7 +60,7 @@
                         <a href="{{ route('logout') }}"
                            class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                            onclick="event.preventDefault();
-															this.closest('form').submit();">
+                                             this.closest('form').submit();">
                            {{ __('Log Out') }}
                         </a>
                      </form>
@@ -80,10 +69,9 @@
             </div>
          </nav>
       </div>
-      <main class="p-8">
+
+      <main class="p-6 w-full">
          {{ $slot }}
       </main>
    </div>
-</body>
-
-</html>
+@endsection
