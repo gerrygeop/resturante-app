@@ -11,7 +11,12 @@ class Reservation extends Model
 
     protected $guarded = ['id'];
 
-    // protected $casts = [
-    //     'reservation_date' => 'timestamp',
-    // ];
+    protected $dates = [
+        'reservation_date'
+    ];
+
+    public function table()
+    {
+        return $this->belongsTo(Table::class);
+    }
 }

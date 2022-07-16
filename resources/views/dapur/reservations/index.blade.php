@@ -37,7 +37,7 @@
                   {{ $reservation->reservation_date }}
                </x-td>
                <x-td>
-                  {{ $reservation->table_id }}
+                  {{ $reservation->table->name }}
                </x-td>
                <x-td>
                   {{ $reservation->guest_number }}

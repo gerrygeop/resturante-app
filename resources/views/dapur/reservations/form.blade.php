@@ -37,7 +37,10 @@
    </div>
 
    <div class="mb-6">
-      <x-label for="reservation_date" :value="__('Reservation Date')" />
+      <x-label for="reservation_date">
+         {{ __('Reservation Date') }}
+         <span class="ml-1 text-xs text-slate-600 italic">[Open: 17:00 - 23:00]</span>
+      </x-label>
       <x-input type="datetime-local" class="block mt-1 w-full" id="reservation_date" name="reservation_date"
          :value="old('reservation_date', $reservation->reservation_date)" required />
 

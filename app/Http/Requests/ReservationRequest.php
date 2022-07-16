@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\DateBetween;
+use App\Rules\TimeBetween;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ReservationRequest extends FormRequest
@@ -18,7 +20,7 @@ class ReservationRequest extends FormRequest
             'last_name' => ['required'],
             'email' => ['required', 'email'],
             'telp' => ['required'],
-            'reservation_date' => ['required'],
+            'reservation_date' => ['required', 'date', new DateBetween, new TimeBetween],
             'table_id' => ['required'],
             'guest_number' => ['required'],
         ];
