@@ -13,4 +13,8 @@
   .btn--link {
     @apply bg-slate-50 border rounded-md font-semibold text-xs text-slate-700 hover:text-slate-900 tracking-widest focus:outline-none hover:border-gray-500 focus:border-gray-700 focus:ring ring-gray-300 transition ease-in-out duration-150;
   }
+
+  .select-option {
+    @apply rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+  }
 }
