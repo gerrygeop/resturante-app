@@ -47,6 +47,7 @@ class TableController extends Controller
 
     public function destroy(Table $table)
     {
+        $table->reservations()->delete();
         $table->delete();
         return back()->with('success', 'Table deleted successfully');
     }

@@ -64,7 +64,7 @@
       <select name="table_id" id="table_id" class="block mt-1 w-full select-option">
          @foreach ($tables as $table)
             <option value="{{ $table->id }}" @selected($reservation->table_id == $table->id)>
-               {{ $table->name }}
+               {{ $table->name }} [{{ $table->guest_number }} seats]
             </option>
          @endforeach
       </select>

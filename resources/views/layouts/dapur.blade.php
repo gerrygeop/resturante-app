@@ -78,6 +78,12 @@
                   <span class="font-medium">{{ session('success') }}</span>
                </div>
             @endif
+            @if (session()->has('warning'))
+               <div class="p-3 mb-3 text-sm text-yellow-700 bg-yellow-100 border border-yellow-400 rounded-lg "
+                  role="alert">
+                  <span class="font-medium">{{ session('warning') }}</span>
+               </div>
+            @endif
          </div>
          {{ $slot }}
       </main>
