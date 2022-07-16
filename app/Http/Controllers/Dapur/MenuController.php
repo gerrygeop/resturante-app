@@ -70,6 +70,7 @@ class MenuController extends Controller
     public function destroy(Menu $menu)
     {
         Storage::delete($menu->image);
+        $menu->categories()->detach($menu->categories);
         $menu->delete();
         return redirect()->back()->with('success', 'Menu deleted successfully');
     }

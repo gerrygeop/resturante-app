@@ -71,6 +71,14 @@
       </div>
 
       <main class="p-6 w-full">
+         <div>
+            @if (session()->has('success'))
+               <div class="p-3 mb-3 text-sm text-green-700 bg-green-100 border border-green-400 rounded-lg "
+                  role="alert">
+                  <span class="font-medium">{{ session('success') }}</span>
+               </div>
+            @endif
+         </div>
          {{ $slot }}
       </main>
    </div>
