@@ -49,7 +49,7 @@ class ReservationController extends Controller
 
     public function edit(Reservation $reservation)
     {
-        $tables = Table::all();
+        $tables = Table::where('status', TableStatus::AVAILABLE)->get();
         return view('dapur.reservations.edit', compact('reservation', 'tables'));
     }
 
