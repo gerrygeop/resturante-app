@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dapur;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TableRequest;
 use App\Models\Table;
-use Illuminate\Http\Request;
 
 class TableController extends Controller
 {

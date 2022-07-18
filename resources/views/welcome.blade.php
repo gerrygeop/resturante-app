@@ -25,13 +25,10 @@
          <div class="flex flex-wrap items-center sm:-mx-3">
             <div class="w-full md:w-1/2 md:px-3">
                <div class="w-full pb-6 space-y-4 sm:max-w-md lg:max-w-lg lg:space-y-4 lg:pr-0 md:pb-0">
-                  <!-- <h1
-           class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl"
-         > -->
-                  <h3 class="text-xl">OUR STORY
-                  </h3>
+
+                  <h3 class="text-xl">OUR STORY</h3>
                   <h2 class="text-4xl text-green-600">Welcome</h2>
-                  <!-- </h1> -->
+
                   <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus nemo incidunt praesentium,
                      ipsum
@@ -68,12 +65,14 @@
                   <h2 class="mb-4 text-2xl font-bold">About Us</h2>
                   <h2
                      class="mb-4 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
-                     WHY CHOOSE US?</h2>
+                     WHY CHOOSE US?
+                  </h2>
 
                   <p class="mb-4 font-medium tracking-tight text-gray-400 xl:mb-6">Lorem ipsum dolor sit amet
                      consectetur
                      adipisicing elit. Natus hic atque magni minus aliquam, eos quam incidunt nam iusto sunt voluptates
-                     inventore a veritatis doloremque corrupti. Veritatis est expedita cupiditate!</p>
+                     inventore a veritatis doloremque corrupti. Veritatis est expedita cupiditate!
+                  </p>
                   <ul>
                      <li class="flex items-center py-2 space-x-4 xl:py-3">
                         <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
